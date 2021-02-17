@@ -1,0 +1,99 @@
+.footer {
+    background-color: $darkBlue;
+    padding: 4rem;
+    font-size: 1.5rem;
+    line-height: 1;
+
+
+    .container {
+        display: grid;
+        // grid-auto-flow: column;
+        grid-template-columns: 2fr 1fr 1fr 3fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "logo links__col1 links__col2 cta"
+            "social links__col1 links__col2 copyright";
+
+
+        @media only screen and(max-width:$bp-large) {
+
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(6, min-content);
+            grid-template-areas: none;
+            grid-template-areas: "logo""social""links__col1""links__col2""cta""copyright";
+
+            &>* {
+                justify-self: center;
+            }
+        }
+
+    }
+
+
+
+    &__logo {
+        grid-area: logo;
+    }
+
+    &__social {
+        grid-area: social;
+
+        @media only screen and(max-width:$bp-large) {
+            margin: 3rem 0;
+        }
+
+        a {
+            display: inline-block;
+        }
+
+        a:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+
+        @media only screen and(max-width:$bp-large) {
+            align-items: center;
+        }
+
+        a:link,
+        a:visited {
+            color: $white;
+            text-decoration: none;
+            line-height: 2.2;
+        }
+
+        a:hover {
+            color: rgba($limeGreen, .6);
+        }
+    }
+
+
+    .col-1 {
+        grid-area: links__col1;
+    }
+
+    .col-2 {
+        grid-area: links__col2;
+    }
+
+    &__cta {
+        grid-area: cta;
+        justify-self: end;
+
+        @media only screen and(max-width:$bp-large) {
+            margin: 3rem 0;
+        }
+    }
+
+    &__copyright {
+        grid-area: copyright;
+        justify-self: end;
+        color: $grayishBlue;
+    }
+}

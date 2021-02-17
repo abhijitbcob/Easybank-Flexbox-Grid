@@ -1,0 +1,38 @@
+.features {
+    background-color: $lightGrayishBlue;
+    padding: 5.5rem 3.5rem;
+    z-index: 9;
+
+    @media only screen and(max-width:$bp-large) {
+        padding: 4.5rem 3rem;
+    }
+}
+
+.feature {
+    margin-top: 4.5rem;
+    display: grid;
+
+    @media only screen and(min-width:$bp-medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and(min-width:$bp-large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    grid-column-gap: 4rem;
+    grid-row-gap: 3rem;
+
+    &__item {
+        display: grid;
+        grid-template-rows: repeat(3, min-content);
+        grid-row-gap: 1rem;
+        justify-items: start;
+    }
+
+    &__icon {
+        height: 7rem;
+        width: 7rem;
+        margin-bottom: 2rem;
+    }
+}
